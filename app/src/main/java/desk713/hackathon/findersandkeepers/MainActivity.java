@@ -1,15 +1,15 @@
 package desk713.hackathon.findersandkeepers;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     Button buttonFound;
     Button buttonLost;
-
+    com.github.nkzawa.socketio.client.Socket mSocket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +23,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(startCreateLostItemActivity);
             }
         });
+
+        buttonLost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startListItemsActivity = new Intent(getApplicationContext(), ListItems.class);
+                startActivity(startListItemsActivity);
+            }
+        });
+
+        SocketHandler socketHandler = (SocketHandler) getApplication();
+        mSocket = socketHandler.getSocket();
+        mSocket.connect();
     }
 
     private void initUI() {

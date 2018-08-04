@@ -2,17 +2,20 @@ package desk713.hackathon.findersandkeepers;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import java.io.ByteArrayOutputStream;
+
 public class TakePictureActivity extends AppCompatActivity {
-    Button buttonTakePicture;
-    Button buttonAcceptPicture;
-    Button buttonSkipPicture;
+    ImageButton buttonTakePicture;
+    ImageButton buttonAcceptPicture;
+    ImageButton buttonSkipPicture;
     ImageView imageViewPictureFromCamera;
     Bitmap pictureBitmap;
 
@@ -22,6 +25,7 @@ public class TakePictureActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_take_picture);
+
         initUI();
 
         // set button functionality
@@ -32,26 +36,26 @@ public class TakePictureActivity extends AppCompatActivity {
             }
         });
 
-
         buttonAcceptPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (pictureBitmap != null){
                     FoundItem.setId();
-                    FoundItem.setPicture(pictureBitmap);
+                    FoundItem.setPicture(encodeImage(pictureBitmap));
                     Intent startAddDescriptionActivity = new Intent(getApplicationContext(), AddDescriptionActivity.class);
                     startActivity(startAddDescriptionActivity);
                 } else {
                     //TODO popup: please take a picture of the item
                 }
+
             }
         });
     }
 
     private void initUI(){
-        buttonTakePicture = (Button)findViewById(R.id.buttonTakePicture);
+        buttonTakePicture = (ImageButton)findViewById(R.id.buttonTakePicture);
         imageViewPictureFromCamera = (ImageView) findViewById(R.id.imageViewPictureFromCamera);
-        buttonAcceptPicture = (Button)findViewById(R.id.buttonAcceptPicture);
+        buttonAcceptPicture = (ImageButton)findViewById(R.id.buttonAcceptPicture);
     }
 
     private void dispatchTakePictureIntent() {
@@ -68,6 +72,14 @@ public class TakePictureActivity extends AppCompatActivity {
             pictureBitmap = (Bitmap) extras.get("data");
             imageViewPictureFromCamera.setImageBitmap(pictureBitmap);
         }
+    }
+
+    protected String encodeImage(Bitmap pictureBitmap){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        pictureBitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
+        byte[] b = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+        return encodedImage;
     }
 
 

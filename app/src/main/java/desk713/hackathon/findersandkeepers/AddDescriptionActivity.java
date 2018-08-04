@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.github.nkzawa.socketio.client.Socket;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +19,15 @@ public class AddDescriptionActivity extends AppCompatActivity {
     Button buttonGoToQuestions;
     EditText editTextDescription;
     Spinner spinnerType;
+    Socket mSocket;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_description);
-        init();
+        initUI();
+        SocketHandler socketHandler = (SocketHandler) getApplication();
+        mSocket = socketHandler.getSocket();
 
         buttonGoToQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,9 +38,10 @@ public class AddDescriptionActivity extends AppCompatActivity {
                 startActivity(startSecurityQuestionActivity);
             }
         });
+
     }
 
-    private void init(){
+    private void initUI(){
         buttonGoToQuestions = (Button)findViewById(R.id.buttonGoToQuestions);
         editTextDescription = (EditText)findViewById(R.id.editTextDescription);
         spinnerType = (Spinner)findViewById(R.id.spinnerType);

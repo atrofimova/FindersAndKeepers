@@ -1,12 +1,10 @@
 package desk713.hackathon.findersandkeepers;
 
-import android.graphics.Bitmap;
-
 import java.sql.Timestamp;
 
 public class FoundItem {
     public static String id;
-    public static Bitmap picture;
+    public static String picture;
     public static String type;
     public static String[] questions = new String[3];
     public static String[] answers = new String[3];
@@ -40,7 +38,7 @@ public class FoundItem {
     }
 
 
-    public static void setPicture(Bitmap bitmap){
+    public static void setPicture(String bitmap){
         FoundItem.picture = bitmap;
     }
 

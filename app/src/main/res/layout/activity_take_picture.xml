@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,35 +7,65 @@
     android:orientation="vertical"
     tools:context=".TakePictureActivity">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButtonCancelNewItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
-
     <ImageView
         android:id="@+id/imageViewPictureFromCamera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_launcher_background"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="103dp" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
 
-    <Button
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nothing" />
+
+    <ImageButton
+        android:id="@+id/floatingActionButtonCancelNewItem"
+        android:layout_width="77dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginStart="8dp"
+        android:background="@null"
+        android:clickable="true"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonTakePicture"
+        app:srcCompat="@drawable/button_decline" />
+
+    <ImageButton
         android:id="@+id/buttonAcceptPicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
         android:text="Accept"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="458dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonTakePicture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/button_accept" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonTakePicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="134dp"
+        android:layout_height="129dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@null"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
         android:text="Take"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="446dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/button_camera" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
