@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TakePictureActivity" />
+        <activity android:name=".AddDescriptionActivity" />
+        <activity android:name=".SecurityQuestionsActivity" />
+        <activity android:name=".ContactDetailsActivity" />
+        <activity android:name=".DepositActivity"></activity>
     </application>
 
 </manifest>
