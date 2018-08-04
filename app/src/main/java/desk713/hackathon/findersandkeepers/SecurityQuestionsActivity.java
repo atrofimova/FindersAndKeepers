@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class SecurityQuestionsActivity extends AppCompatActivity {
     EditText editTextQuestion1;
@@ -14,7 +14,7 @@ public class SecurityQuestionsActivity extends AppCompatActivity {
     EditText editTextAnswer1;
     EditText editTextAnswer2;
     EditText editTextAnswer3;
-    Button buttonDone;
+    ImageButton buttonDone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +32,8 @@ public class SecurityQuestionsActivity extends AppCompatActivity {
                 FoundItem.setAnswer(0, editTextAnswer1.getText().toString());
                 FoundItem.setAnswer(1, editTextAnswer2.getText().toString());
                 FoundItem.setAnswer(2, editTextAnswer3.getText().toString());
-                Intent startContactDetailsActivity = new Intent(getApplicationContext(), ContactDetailsActivity.class);
-                startActivity(startContactDetailsActivity);
+                Intent startDepositActivity = new Intent(getApplicationContext(), DepositActivity.class);
+                startActivity(startDepositActivity);
             }
         });
     }
@@ -45,6 +45,6 @@ public class SecurityQuestionsActivity extends AppCompatActivity {
         editTextAnswer1 = (EditText)findViewById(R.id.editTextAnswer1);
         editTextAnswer2 = (EditText)findViewById(R.id.editTextAnswer2);
         editTextAnswer3 = (EditText)findViewById(R.id.editTextAnswer3);
-        buttonDone = (Button)findViewById(R.id.buttonDone);
+        buttonDone = (ImageButton)findViewById(R.id.buttonDone);
     }
 }

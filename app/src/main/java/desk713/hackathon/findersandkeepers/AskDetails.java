@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 public class AskDetails extends AppCompatActivity {
-    Button buttonNext;
+    ImageButton buttonNext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,6 @@ public class AskDetails extends AppCompatActivity {
     }
 
     private void initUI(){
-        buttonNext = (Button)findViewById(R.id.buttonNext);
+        buttonNext = (ImageButton)findViewById(R.id.buttonNext);
     }
 }

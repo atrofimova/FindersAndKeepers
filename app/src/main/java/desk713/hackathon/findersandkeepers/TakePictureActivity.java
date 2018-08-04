@@ -42,8 +42,8 @@ public class TakePictureActivity extends AppCompatActivity {
                 if (pictureBitmap != null){
                     FoundItem.setId();
                     FoundItem.setPicture(encodeImage(pictureBitmap));
-                    Intent startAddDescriptionActivity = new Intent(getApplicationContext(), AddDescriptionActivity.class);
-                    startActivity(startAddDescriptionActivity);
+                    Intent startSecurityQuestionsActivity = new Intent(getApplicationContext(), SecurityQuestionsActivity.class);
+                    startActivity(startSecurityQuestionsActivity);
                 } else {
                     //TODO popup: please take a picture of the item
                 }

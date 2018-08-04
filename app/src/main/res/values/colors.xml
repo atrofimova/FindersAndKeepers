@@ -6,4 +6,5 @@
     <color name="colorTextContrast">#ffffff</color>
     <color name="colorButtonAccent">#ffffff</color>
     <color name="colorButtonMain">#e65722</color>
+    <color name="colorDarkBG">#0c0539</color>
 </resources>
