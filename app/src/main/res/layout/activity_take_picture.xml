@@ -15,7 +15,7 @@
         app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewPictureFromCamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_launcher_background"
@@ -36,14 +36,6 @@
         android:layout_height="wrap_content"
         android:text="Take"
         tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="446dp" />
-
-    <Button
-        android:id="@+id/buttonSkipPicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Skip"
-        tools:layout_editor_absoluteX="270dp"
         tools:layout_editor_absoluteY="446dp" />
 
 </LinearLayout>
